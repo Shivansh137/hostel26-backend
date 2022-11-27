@@ -4,7 +4,9 @@ const app = express()
 app.use(
   cors({
     origin: "https://hostel26.onrender.com",
-    methods: ["GET", "POST", "PATCH", "DELETE"]
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true,
+    preflightContinue:true
   })
 );
 const cookieparser = require('cookie-parser');
