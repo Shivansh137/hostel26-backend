@@ -1,5 +1,12 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
+app.use(
+  cors({
+    origin: "https://hostel26.onrender.com",
+    methods: ["GET", "POST", "PATCH", "DELETE"]
+  })
+);
 const cookieparser = require('cookie-parser');
 app.use(cookieparser());
 require('dotenv').config({ path: 'config.env' })
