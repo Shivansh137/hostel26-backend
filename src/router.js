@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
   }
 })
 //-------------------------Students-------------------
-router.get('/students', auth, async (req, res) => {
+router.post('/students', auth, async (req, res) => {
     const students_data = await Student.find({});
     res.json(students_data);
 })
