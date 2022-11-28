@@ -66,11 +66,7 @@ router.post('/login', async (req, res) => {
        }
       else {
         let token = await studentData.generateAuthToken();
-        res.cookie("jwt", token, {
-          maxAge:Date.now(),
-          httpOnly:true
-        });
-         res.json("Login Successfull");
+         res.json(token);
        }
     }
   } catch (error) {
@@ -90,7 +86,7 @@ router.get('/students/:room', async(req, res) => {
 
 
 //------------------------Profile---------------------
-router.get('/profile',profileAuth, (req, res) => {
+router.post('/profile',profileAuth, (req, res) => {
   res.json(req.studentData);
 })
 

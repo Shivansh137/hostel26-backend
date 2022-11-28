@@ -3,7 +3,7 @@ const Student = require('../db/studentSchema');
 
 const profileAuth = async (req, res, next) => {
   try {
-      const token = req.cookies.jwt;
+    const token = req.body.token;
     const student = jwt.verify(token, process.env.SECRET_KEY);
     const studentData = await Student.findOne({ _id: student._id, "tokens.token": token });
     req.studentData = studentData;
