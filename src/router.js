@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
         let token = await studentData.generateAuthToken();
         res.cookie("jwt", token, {
           maxAge:Date.now(),
-          httpOnly:false
+          httpOnly:true
         });
          res.json("Login Successfull");
        }
