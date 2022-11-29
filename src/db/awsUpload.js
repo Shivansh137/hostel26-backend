@@ -5,7 +5,7 @@ const s3 = new AWS.S3();
 const uploadFile = (filename) => {
   let url;
   //READ CONTENT FROM THE FILE
-  const fileContent = fs.readFileSync(filename);
+  const fileContent = fs.readFileSync('public/images/img_avatar.png');
 
   //SETTING S3 BUCKET UPLOAD PARAMETERS
   const params = {
