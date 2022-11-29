@@ -1,6 +1,6 @@
 const fs = require('fs');
 const AWS = require('aws-sdk');
-const s3 = AWS();
+const s3 = new AWS.S3();
 
 const uploadFile = (filename) => {
   let url;
