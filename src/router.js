@@ -25,8 +25,8 @@ router.get('/posts',async(req, res) => {
 router.post('/', upload.single('post'), async (req, res) => {
   const { title, date, by } = req.body;
   try {
-    const imgurl = uploadFile(`images/${req.file.filename}`);
-    const post = new Post({ img: imgurl, title, date,by });
+    // const imgurl = uploadFile(`images/${req.file.filename}`);
+    const post = new Post({ img: req.file.filename, title, date,by });
     await post.save();
     res.json({ img: req.file.filename, title, date,by });
   } catch (error) {
