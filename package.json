@@ -9,6 +9,7 @@
   "author": "Shivansh Agrawal",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1263.0",
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

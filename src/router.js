@@ -6,6 +6,7 @@ const multer = require('multer');
 const bcrypt = require('bcrypt')
 const auth = require('./middleware/auth');
 const profileAuth = require('./middleware/profileAuth');
+const uploadFile = require('./db/awsUpload');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -24,7 +25,8 @@ router.get('/posts',async(req, res) => {
 router.post('/', upload.single('post'), async (req, res) => {
   const { title, date, by } = req.body;
   try {
-    const post = new Post({ img: req.file.filename, title, date,by });
+    const imgurl = uploadFile(`public/images/${req.file.filename}`);
+    const post = new Post({ img: imgurl, title, date,by });
     await post.save();
     res.json({ img: req.file.filename, title, date,by });
   } catch (error) {
