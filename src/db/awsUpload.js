@@ -23,4 +23,4 @@ const uploadFile = (filename) => {
 
   return url;
 }
-modules.exports = uploadFile;
+module.exports = uploadFile;
