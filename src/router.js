@@ -48,7 +48,7 @@ router.post('/register', async (req, res) => {
       res.json("Passwords are not matching");
     }
   } catch (error) {
-     console.log(err);
+     console.log(error);
   }
 })
 //----------------------------Login---------------------------
